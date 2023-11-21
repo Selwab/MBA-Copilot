@@ -5,8 +5,8 @@ import openai
 from langchain.document_loaders import PyPDFLoader
 
 # Crea la carpeta DataTxt donde estara los txt de cada pdf
-def folderCreator  (currDirectory, nameFolder, nameSubFolder):
-    ruta_carpeta_cases = os.path.join(currDirectory, nameFolder, nameSubFolder)
+def folderCreator  (currDirectory, outputFolder):
+    ruta_carpeta_cases = os.path.join(currDirectory, outputFolder)
 
     if not os.path.exists(ruta_carpeta_cases):
         os.makedirs(ruta_carpeta_cases)
@@ -19,7 +19,7 @@ def pdfLoader(path,pdfName):
     return loader.load()
 
 # Crea el txt para cada pdf
-def creatorTxt (currDirectory, subDirectory, firstSubDirectory, secondSubDirectory) :
+def creatorTxt (currDirectory, subDirectory, outputDirectory) :
 
     cases = os.listdir(currDirectory + subDirectory)
     pdfDocs_cases = []
@@ -33,7 +33,7 @@ def creatorTxt (currDirectory, subDirectory, firstSubDirectory, secondSubDirecto
         # Elimina la extensión .pdf del nombre del archivo
         pdf_name = os.path.splitext(pdf_name)[0]
 
-        doc_path = folderCreator (currDirectory, firstSubDirectory, secondSubDirectory)
+        doc_path = folderCreator (currDirectory, outputDirectory)
 
         text = ""
         
@@ -45,19 +45,20 @@ def creatorTxt (currDirectory, subDirectory, firstSubDirectory, secondSubDirecto
         with open(os.path.join(doc_path, f"{pdf_name}.txt"), "w", encoding="utf-8") as file:
             file.write(text)
         
-def extractorStudyCases (currDirectory, subDirectoryForLoad, firstSubDirectory, secondSubDirectory):
+def extractorStudyCases (currDirectory, subDirectoryForLoad, output_Directory):
     
-    folderCreator (currDirectory, firstSubDirectory, secondSubDirectory)
-    creatorTxt (currDirectory, subDirectoryForLoad , firstSubDirectory, secondSubDirectory)
+    folderCreator (currDirectory, output_Directory)
+    creatorTxt (currDirectory, subDirectoryForLoad , output_Directory)
 
-    print("has extracted and converted your pdfs to txt")
+    print("------------------------------------------------------")
+    print("You have extracted and converted your PDF files to txt")
+    print("------------------------------------------------------")
 
 
 ##### VARIABLES Y FUNCION PARA CORRER EL DATAEXTRACTOR #####
 current_directory = os.path.dirname(os.path.abspath(__file__))
 subDirectoryLoad = '/Data/StudyCases/'
-subDirectoryOne = 'DataTxt'
-subDirectoryTwo = 'StudyCases'
+DirectoryOutput = 'StudyCases'
 
-extractorStudyCases (current_directory, subDirectoryLoad, subDirectoryOne, subDirectoryTwo)
+extractorStudyCases (current_directory, subDirectoryLoad, DirectoryOutput)
 
