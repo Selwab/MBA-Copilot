@@ -54,7 +54,7 @@ def extractorStudyCases (currDirectory, subDirectoryForLoad, output_Directory):
     print("You have extracted and converted your PDF files to txt")
     print("------------------------------------------------------")
 
-
+###
 ##### VARIABLES Y FUNCION PARA CORRER EL DATAEXTRACTOR #####
 current_directory = os.path.dirname(os.path.abspath(__file__))
 subDirectoryLoad = '/Data/StudyCases/'
