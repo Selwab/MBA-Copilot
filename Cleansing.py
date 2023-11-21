@@ -36,12 +36,30 @@ def write_text_to_file(file_path, text):
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(text)
 
-# Ruta de tu archivo de texto
-file_path = './archivo.txt'
-text_data = read_text_from_file(file_path)
-cleaned_data = clean_text(text_data)
-print(cleaned_data)
-write_text_to_file('./archivolimpio.txt',cleaned_data)
+def process_files(input_folder, output_folder):
+
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+
+    files = os.listdir(input_folder)
+
+    for file_name in files:
+        input_file_path = os.path.join(input_folder, file_name)
+        text_data = read_text_from_file(input_file_path)
+        cleaned_data = clean_text(text_data)
+
+        base_name, extension = os.path.splitext(file_name)
+        output_file_name = f'{base_name}_clean{extension}'
+
+        output_file_path = os.path.join(output_folder, output_file_name)
+
+        write_text_to_file(output_file_path, cleaned_data)
+        print(f'Archivo limpio guardado en: {output_file_path}')
+
+
+input_folder = 'StudyCases'
+output_folder = 'CleanStudyCases'
+process_files(input_folder, output_folder)
 
 
 #https://medium.com/@pawan329/text-data-preprocessing-made-easy-steps-to-clean-text-data-using-python-81a138a0e0e3
