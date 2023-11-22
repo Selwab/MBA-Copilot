@@ -53,11 +53,11 @@ def extractorStudyCases (input_folder_PDF, output_folder):
     print(f"You have extracted and converted your PDF files to txt inside: {output_folder}")
     print("-------------------------------------------------------------------------------")
 
-###
+"""
 ##### VARIABLES Y FUNCION PARA CORRER EL DATAEXTRACTOR #####
 #current_directory = os.path.dirname(os.path.abspath(__file__))
 input_folder_PDF = './Data/StudyCases/'
 output_folder = 'StudyCases'
 
 extractorStudyCases (input_folder_PDF, output_folder)
-
+"""

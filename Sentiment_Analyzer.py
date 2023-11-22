@@ -4,10 +4,10 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 
 
 # Descarga el léxico de VADER
-nltk.download('vader_lexicon')
+#nltk.download('vader_lexicon')
 
 # Descarga el tokenizador de oraciones Punkt
-nltk.download('punkt')
+#nltk.download('punkt')
 
 
 def dividir_en_oraciones(texto):
@@ -16,6 +16,9 @@ def dividir_en_oraciones(texto):
     return oraciones
 
 def analizar_sentimiento(texto):
+    # Inicializa el analizador de sentimientos de VADER
+    sia = SentimentIntensityAnalyzer()
+
     # Obtiene las puntuaciones de sentimiento del texto
     puntuaciones = sia.polarity_scores(texto)
 
@@ -43,8 +46,10 @@ def analizar_casos_de_estudio(input_folder):
             sentimiento = analizar_sentimiento(oracion)
             print(f"Oración {i+1}: {oracion} Sentimiento: {sentimiento} ")
 
-# Inicializa el analizador de sentimientos de VADER
-sia = SentimentIntensityAnalyzer()
 
+# Inicializa el analizador de sentimientos de VADER
+#sia = SentimentIntensityAnalyzer()
+"""
 input_folder = 'StudyCases'
 analizar_casos_de_estudio(input_folder)
+"""

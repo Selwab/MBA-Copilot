@@ -1,9 +1,10 @@
 import os
 import re
 import nltk
-nltk.download('punkt')
-nltk.download('stopwords')
+#nltk.download('punkt')
+#nltk.download('stopwords')
 from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 from langchain.document_loaders import WebBaseLoader
 
 def preprocess_text(text):
@@ -56,11 +57,11 @@ def process_files(input_folder, output_folder):
         write_text_to_file(output_file_path, cleaned_data)
         print(f'Archivo limpio guardado en: {output_file_path}')
 
-
+"""
 input_folder = 'StudyCases'
 output_folder = 'CleanStudyCases'
 process_files(input_folder, output_folder)
-
+"""
 
 #https://medium.com/@pawan329/text-data-preprocessing-made-easy-steps-to-clean-text-data-using-python-81a138a0e0e3
 """# Iterate through each link

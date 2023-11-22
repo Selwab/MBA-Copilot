@@ -37,6 +37,7 @@ def process_and_split_files(input_folder, output_folder, chunk_size, overlap):
             write_text_to_file(output_file_path, chunk)
             print(f'Fragmento guardado en: {output_file_path}')
 
+"""
 # Configuración
 input_folder = 'CleanStudyCases' 
 output_folder = 'ProcessedStudyCases'  
@@ -45,3 +46,4 @@ overlap = 100
 
 # Llamada a la función principal
 process_and_split_files(input_folder, output_folder, chunk_size, overlap)
+"""
