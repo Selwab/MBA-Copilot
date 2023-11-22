@@ -17,12 +17,6 @@ def main ():
     
     print("-------------------------------------------------------------------------------")
 
-    ##### SENTIMENT ANALYZER #####
-
-    Sentiment_Analyzer.analizar_casos_de_estudio(input_folder)
-
-    print("-------------------------------------------------------------------------------")
-
     ##### SPLITTING #####
 
     # Configuración
@@ -35,6 +29,13 @@ def main ():
     Splitting.process_and_split_files(input_folder_clean, output_folder_splitting, chunk_size, overlap)
 
     print("-------------------------------------------------------------------------------")
+
+    ##### SENTIMENT ANALYZER #####
+
+    Sentiment_Analyzer.analizar_casos_de_estudio(input_folder)
+
+    print("-------------------------------------------------------------------------------")
+
 
 
 if __name__ == '__main__':
