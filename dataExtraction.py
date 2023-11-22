@@ -1,7 +1,6 @@
 #Imports
 import langchain 
 import os 
-import openai
 from langchain.document_loaders import PyPDFLoader
 
 # Crea la carpeta DataTxt donde estara los txt de cada pdf
@@ -58,7 +57,7 @@ def extractorStudyCases (currDirectory, subDirectoryForLoad, output_Directory):
 ##### VARIABLES Y FUNCION PARA CORRER EL DATAEXTRACTOR #####
 current_directory = os.path.dirname(os.path.abspath(__file__))
 subDirectoryLoad = '/Data/StudyCases/'
-DirectoryOutput = 'StudyCases'
+directoryOutput = 'StudyCases'
 
-extractorStudyCases (current_directory, subDirectoryLoad, DirectoryOutput)
+extractorStudyCases (current_directory, subDirectoryLoad, directoryOutput)
 
