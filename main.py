@@ -8,7 +8,9 @@ def main ():
     input_folder_PDF = './Data/StudyCases/'
     output_folder_TXT = 'StudyCases'
 
-    DataExtraction.extractorStudyCases (input_folder_PDF, output_folder_TXT)
+    DataExtraction.creatorTxt(input_folder_PDF, output_folder_TXT)
+
+    print("-------------------------------------------------------------------------------")
 
     ##### CLEANSING #####
     input_folder = 'StudyCases'

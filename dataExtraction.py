@@ -5,12 +5,12 @@ from langchain.document_loaders import PyPDFLoader
 
 # Crea la carpeta DataTxt donde estara los txt de cada pdf
 def folderCreator  (output_folder):
-    ruta_carpeta_cases = os.path.join(output_folder)
+    cases_folder_path = os.path.join(output_folder)
 
-    if not os.path.exists(ruta_carpeta_cases):
-        os.makedirs(ruta_carpeta_cases)
+    if not os.path.exists(cases_folder_path):
+        os.makedirs(cases_folder_path)
     
-    return ruta_carpeta_cases
+    return cases_folder_path
 
 # funcion para cargar el pdf
 def pdfLoader(path,pdfName):
@@ -43,16 +43,9 @@ def creatorTxt (input_folder_PDF, output_folder) :
         # Guarda el texto acumulado en un solo archivo TXT para cada el PDF
         with open(os.path.join(doc_path, f"{pdf_name}.txt"), "w", encoding="utf-8") as file:
             file.write(text)
+
+        print(f"You have extracted and converted your PDF files to txt inside and with name of : {output_folder}\{pdf_name}.txt")
         
-def extractorStudyCases (input_folder_PDF, output_folder):
-    
-    folderCreator (output_folder)
-    creatorTxt (input_folder_PDF, output_folder)
-
-    print("-------------------------------------------------------------------------------")
-    print(f"You have extracted and converted your PDF files to txt inside: {output_folder}")
-    print("-------------------------------------------------------------------------------")
-
 """
 ##### VARIABLES Y FUNCION PARA CORRER EL DATAEXTRACTOR #####
 #current_directory = os.path.dirname(os.path.abspath(__file__))
